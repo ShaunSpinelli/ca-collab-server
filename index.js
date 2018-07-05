@@ -1,14 +1,21 @@
+require('dotenv').config()
 const mongoose = require('mongoose')
 const express= require('express')
-const BlogPost = require('./models/BlogPost')
+
+// const BlogPost = require('./models/BlogPost')
+// Middleware
 const bodyParser = require('body-parser')
+const { requireJwt } = require('../middleware/authentication')
+
+// Routing 
 const blogPostRoutes = require('./routes/blogPost')
 const topicRoutes = require('./routes/topic')
 const userRoutes = require('./routes/user')
-require('dotenv').config()
 const app = express()
 
 app.use(bodyParser.json())
+
+app.use(requireJwt)
 
 app.use('/blogpost', blogPostRoutes)
 
