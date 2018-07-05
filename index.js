@@ -16,11 +16,10 @@ const app = express()
 
 app.use(bodyParser.json())
 app.use(cors())
-app.use(requireJwt)
 
-app.use('/blogpost', blogPostRoutes)
+app.use('/blogpost', requireJwt,blogPostRoutes)
 
-app.use('/topics', topicRoutes)
+app.use('/topics', requireJwt,topicRoutes)
 
 app.use('/user', userRoutes)
 
