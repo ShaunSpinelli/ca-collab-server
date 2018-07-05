@@ -5,8 +5,8 @@ const Schema = mongoose.Schema
 const BlogPost = new Schema({
     title: String,
     content: String,
-    topicid: String,
-    userid: String,
+    topicId: String,
+    userId: String,
 }, {
     timestamps: {
         createdAt: 'created_at'
