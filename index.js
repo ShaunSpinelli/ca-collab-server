@@ -5,6 +5,7 @@ const bodyParser = require('body-parser')
 const blogPostRoutes = require('./routes/blogPost')
 const topicRoutes = require('./routes/topic')
 const userRoutes = require('./routes/user')
+require('dotenv').config()
 const app = express()
 
 app.use(bodyParser.json())
@@ -16,7 +17,9 @@ app.use('/topics', topicRoutes)
 app.use('/user', userRoutes)
 
 
-mongoose.connect('mongodb://localhost/ca-collab',(err)=>{
+console.log(process.env.DB_USER)
+
+mongoose.connect(`mongodb://${process.env.DB_USER}:${process.env.DB_PASS}@ds125871.mlab.com:25871/cs-collab`,(err)=>{
     if(err){
         console.log('Error:', err.message)
     }else{
