@@ -6,6 +6,7 @@ const express= require('express')
 // Middleware
 const bodyParser = require('body-parser')
 const { requireJwt } = require('../middleware/authentication')
+const cors = require('cors')
 
 // Routing 
 const blogPostRoutes = require('./routes/blogPost')
@@ -14,7 +15,7 @@ const userRoutes = require('./routes/user')
 const app = express()
 
 app.use(bodyParser.json())
-
+app.use(cors())
 app.use(requireJwt)
 
 app.use('/blogpost', blogPostRoutes)
