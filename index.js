@@ -5,7 +5,7 @@ const express= require('express')
 // const BlogPost = require('./models/BlogPost')
 // Middleware
 const bodyParser = require('body-parser')
-const { requireJwt } = require('.   /middleware/authentication')
+const { requireJwt } = require('./middleware/authentication')
 const cors = require('cors')
 
 // Routing 
