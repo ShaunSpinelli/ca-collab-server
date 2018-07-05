@@ -35,4 +35,4 @@ mongoose.connect(`mongodb://${process.env.DB_USER}:${process.env.DB_PASS}@ds1258
     }
 })
 
-app.listen(process.env.PORT || 8080, ()=> console.log('listening on 1234'))
+app.listen(process.env.PORT || 8080, ()=> console.log('listening on 8080'))
