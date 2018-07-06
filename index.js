@@ -1,4 +1,5 @@
 require('dotenv').config()
+const config = require('./_config');
 const mongoose = require('mongoose')
 const express= require('express')
 
@@ -17,16 +18,15 @@ const app = express()
 app.use(bodyParser.json())
 app.use(cors())
 
-app.use('/blogpost', requireJwt,blogPostRoutes)
+app.use('/blogpost', /*requireJwt*/ blogPostRoutes)
 
-app.use('/topics', requireJwt,topicRoutes)
+app.use('/topics', /*requireJwt*/ topicRoutes)
 
 app.use('/user', userRoutes)
 
 
-console.log(process.env.DB_USER)
 
-mongoose.connect(`mongodb://${process.env.DB_USER}:${process.env.DB_PASS}@ds125871.mlab.com:25871/cs-collab`,(err)=>{
+mongoose.connect(config.mongoURI[app.settings.env],(err)=>{
     if(err){
         console.log('Error:', err.message)
     }else{
@@ -35,3 +35,5 @@ mongoose.connect(`mongodb://${process.env.DB_USER}:${process.env.DB_PASS}@ds1258
 })
 
 app.listen(process.env.PORT || 8080, ()=> console.log('listening on 8080'))
+
+module.exports = app
