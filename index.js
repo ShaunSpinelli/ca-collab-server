@@ -20,7 +20,7 @@ app.use(cors())
 
 app.use('/blogposts', /*requireJwt*/ blogPostRoutes)
 
-app.use('/topics', /*requireJwt*/ topicRoutes)
+app.use('/topicss', /*requireJwt*/ topicRoutes)
 
 app.use('/user', userRoutes)
 
