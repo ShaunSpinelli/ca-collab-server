@@ -18,9 +18,9 @@ const app = express()
 app.use(bodyParser.json())
 app.use(cors())
 
-app.use('/blogposts', /*requireJwt*/ blogPostRoutes)
+app.use('/blogpost', /*requireJwt*/ blogPostRoutes)
 
-app.use('/topicss', /*requireJwt*/ topicRoutes)
+app.use('/topics', /*requireJwt*/ topicRoutes)
 
 app.use('/user', userRoutes)
 
